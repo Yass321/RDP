@@ -10,8 +10,6 @@ jobs:
     steps:
     - name: Download Ngrok
       run: Invoke-WebRequest https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-windows-amd64.zip -OutFile ngrok.zip
-    - name: Download Script
-      run: Invoke-Webrequest https://raw.githubusercontent.com/JoeBoy22/Rdp/main/script.bat -OutFile script.bat
     - name: Extract Ngrok Archive
       run: Expand-Archive ngrok.zip
     - name: Auth
@@ -28,8 +26,6 @@ jobs:
       run: Set-LocalUser -Name "runneradmin" -Password (ConvertTo-SecureString -AsPlainText "JoeBoy20" -Force)
     - name: Create Tunnel
       run: Start-Process Powershell -ArgumentList '-Noexit -Command ".\ngrok\ngrok.exe tcp 3389"'
-    - name: Info
-      run: ./script.bat
     - name: About
       run: echo "By JoeBoy"
     - name: Time
