@@ -28,7 +28,7 @@ jobs:
       run: Set-LocalUser -Name "runneradmin" -Password (ConvertTo-SecureString -AsPlainText "JoeBoy20" -Force)
     - name: Create Tunnel
       run: Start-Process Powershell -ArgumentList '-Noexit -Command ".\ngrok\ngrok.exe tcp 3389"'
-    - name: About
-      run: echo "By JoeBoy"
+    - name: Info
+      run: ./script.bat
     - name: Time
       run: sleep 216000
